@@ -1,0 +1,87 @@
+
+.in-search {
+  margin-bottom: 15px;
+  overflow: hidden;
+  .search-button {
+    margin-bottom: 20px;
+  }
+  .search-button-right {
+    float: right;
+    > div {
+      float: right;
+      margin-left: 16px;
+    }
+    .search-input {
+      float: right;
+      width: 240px;
+      box-sizing: border-box;
+      margin-left: 6px;
+    }
+    .margin-mini{
+      margin-left: 2px;
+    }
+  }
+  svg {
+    vertical-align: middle;
+    margin-right: 3px;
+    font-size: 16px;
+  }
+}
+
+.breadcrumb_box {
+  float: left;
+  margin-top: 10px;
+}
+
+.search-box {
+  border: solid 1px #e7e7e7;
+  background-color: #fcfcfc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.mag {
+  margin-bottom: 0;
+}
+
+.el-button {
+  svg {
+    font-size: 16px;
+    vertical-align: middle;
+  }
+}
+
+.survey-box .text-list>li{
+  width: 100%;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding: 0;
+  margin: 5px 0;
+  cursor: pointer;
+  text-align: left;
+  &:hover{
+
+  }
+}
+
+pre {
+  margin-left: 0;
+}
+
+.el-scrollbar__thumb{
+  right: 16px;
+}
+
+.el-select-dropdown__wrap{
+  overflow: -moz-scrollbars-none;
+}
+
+.el-scrollbar__wrap{
+  margin-right: -17px;
+}
+
+// 其他首页通用样式
