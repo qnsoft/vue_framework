@@ -3,11 +3,11 @@
 *.exe
 *.exe~
 settings.json
-goERP.*
 debug
 debug~
 settings.json
 .idea
+.vscode
 logs/*.log
 /conf/app.conf
 #vue2+webpack2生成的文件
