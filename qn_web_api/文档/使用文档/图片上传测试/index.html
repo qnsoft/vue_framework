@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title>上传测试</title>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $(function () {
+     // if (localStorage.getItem("token") == null) {
+        $.ajax({
+          //type: 'get',
+          // url: 'http://127.0.0.1:10101/access_token?Appid=1001&AppSecret=123456',
+          type: 'post',
+          url: 'http://39.105.96.133:10102/access_token',
+          data: JSON.stringify({ Appid: '1002', AppSecret: '123456' }),
+          async: true,
+          dataType: "json",
+          contentType: false,
+          success: (data) => {
+            console.log(data.Token);
+            localStorage.setItem("token", data.Token);
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        });
+    // }
+      $("#btn").click(function () {
+        var _token = localStorage.getItem("token");
+        console.log(_token);
+        $.ajax({
+          headers: { 'token': _token },
+          type: 'post',
+          url: 'http://39.105.96.133:10102/upload_pic',
+          cache: false,
+          data: new FormData($('#myform')[0]),
+          processData: false,
+          contentType: false,
+          dataType: 'json',
+          async: true,
+          success: (data) => {
+            console.log(data);
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        });
+      });
+
+    });
+  </script>
+  </script>
+</head>
+
+<body>
+  <form id="myform" enctype="multipart/form-data">
+    <input type="file" id="userfile" name="userfile" />
+    <button type="button" id="btn">提交</button>
+  </form>
+</body>
+
+</html>

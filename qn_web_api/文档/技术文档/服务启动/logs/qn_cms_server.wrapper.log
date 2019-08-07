@@ -1,0 +1,50 @@
+2019-02-28 18:28:53,008 DEBUG - Starting ServiceWrapper in the CLI mode
+2019-02-28 18:28:53,756 INFO  - Installing the service with id 'cnwtn_com'
+2019-02-28 18:28:53,788 DEBUG - Completed. Exit code is 0
+2019-02-28 18:35:17,660 DEBUG - Starting ServiceWrapper in the CLI mode
+2019-02-28 18:35:17,856 INFO  - Installing the service with id 'cnwtn_com'
+2019-02-28 18:35:17,858 FATAL - Unhandled exception
+System.Exception: Installation failure: Service with id 'cnwtn_com' already exists
+   在 winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   在 winsw.WrapperService.Main(String[] args)
+2019-02-28 18:37:09,012 DEBUG - Starting ServiceWrapper in the CLI mode
+2019-02-28 18:37:09,178 INFO  - Installing the service with id 'qncms-cnwntcom'
+2019-02-28 18:37:09,206 DEBUG - Completed. Exit code is 0
+2019-02-28 18:37:33,277 DEBUG - Starting ServiceWrapper in the CLI mode
+2019-02-28 18:37:33,401 INFO  - Installing the service with id 'qncms[cnwntcom]'
+2019-02-28 18:37:33,425 DEBUG - Completed. Exit code is 0
+2019-02-28 18:38:22,967 INFO  - Starting ServiceWrapper in the service mode
+2019-02-28 18:38:23,052 INFO  - Starting D:\GoLang\cnwnt.com\qn_cms.exe 
+2019-02-28 18:38:23,055 INFO  - Starting D:\GoLang\cnwnt.com\qn_cms.exe 
+2019-02-28 18:38:23,066 INFO  - Started process 4624
+2019-02-28 18:38:23,067 DEBUG - Forwarding logs of the process System.Diagnostics.Process (qn_cms) to winsw.RollingLogAppender
+2019-02-28 18:44:42,481 DEBUG - Starting ServiceWrapper in the CLI mode
+2019-02-28 18:44:42,648 FATAL - Unhandled exception
+System.Exception: Unknown command: -service-stop
+   在 winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   在 winsw.WrapperService.Main(String[] args)
+2019-02-28 18:44:42,761 DEBUG - Starting ServiceWrapper in the CLI mode
+2019-02-28 18:44:42,881 FATAL - Unhandled exception
+System.Exception: Unknown command: -service-remove
+   在 winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
+   在 winsw.WrapperService.Main(String[] args)
+2019-03-04 15:06:09,377 INFO  - Stopping qncms[cnwntcom]
+2019-03-04 15:06:09,438 DEBUG - ProcessKill 4624
+2019-03-04 15:06:09,633 WARN  - Failed to locate children of the process with PID=4624. Child processes won't be terminated
+System.Runtime.InteropServices.COMException (0x8007045B): 系统正在关机。 (异常来自 HRESULT:0x8007045B)
+   在 System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   在 System.Management.ManagementScope.InitializeGuts(Object o)
+   在 System.Management.ManagementScope.Initialize()
+   在 System.Management.ManagementObjectSearcher.Initialize()
+   在 System.Management.ManagementObjectSearcher.Get()
+   在 winsw.Util.ProcessHelper.GetChildPids(Int32 pid)
+2019-03-04 15:06:09,687 INFO  - Stopping process 4624
+2019-03-04 15:06:09,705 INFO  - Send SIGINT 4624
+2019-03-04 15:06:10,167 INFO  - SIGINT to4624 successful
+2019-03-04 15:06:10,173 INFO  - Finished qncms[cnwntcom]
+2019-03-04 15:06:10,207 DEBUG - Completed. Exit code is 0
+2019-03-04 15:07:01,578 INFO  - Starting ServiceWrapper in the service mode
+2019-03-04 15:07:01,828 INFO  - Starting D:\GoLang\cnwnt.com\qn_cms.exe 
+2019-03-04 15:07:01,843 INFO  - Starting D:\GoLang\cnwnt.com\qn_cms.exe 
+2019-03-04 15:07:01,984 INFO  - Started process 1508
+2019-03-04 15:07:02,000 DEBUG - Forwarding logs of the process System.Diagnostics.Process (qn_cms) to winsw.RollingLogAppender

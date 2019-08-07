@@ -1,0 +1,16 @@
+package date
+
+import (
+	"strings"
+	"time"
+	"qnsoft/qn_web_api/utils/php2go"
+)
+
+
+func  getCalendar(start,end string){
+    _time: = php2go.Range(php2go.Strtotime(start), php2go.Strtotime(end), 24*60*60);
+ 
+    _time = array_map(create_function('$v', 'return date("Y-m-d", $v);'), $_time);
+ 
+    return $_time;
+}

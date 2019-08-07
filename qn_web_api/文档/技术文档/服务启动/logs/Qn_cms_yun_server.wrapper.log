@@ -1,0 +1,28 @@
+2019-02-28 18:54:40,341 DEBUG - Starting ServiceWrapper in the CLI mode
+2019-02-28 18:54:40,512 INFO  - Installing the service with id 'qn-cms-yun'
+2019-02-28 18:54:40,540 DEBUG - Completed. Exit code is 0
+2019-02-28 18:55:12,167 INFO  - Starting ServiceWrapper in the service mode
+2019-02-28 18:55:12,230 INFO  - Starting D:\GoLang\qncms_yun\qn_cms_yun.exe 
+2019-02-28 18:55:12,233 INFO  - Starting D:\GoLang\qncms_yun\qn_cms_yun.exe 
+2019-02-28 18:55:12,243 INFO  - Started process 4308
+2019-02-28 18:55:12,244 DEBUG - Forwarding logs of the process System.Diagnostics.Process (qn_cms_yun) to winsw.RollingLogAppender
+2019-03-04 15:06:09,514 INFO  - Stopping qn-cms-yun
+2019-03-04 15:06:09,587 DEBUG - ProcessKill 4308
+2019-03-04 15:06:09,715 WARN  - Failed to locate children of the process with PID=4308. Child processes won't be terminated
+System.Runtime.InteropServices.COMException (0x8007045B): 系统正在关机。 (异常来自 HRESULT:0x8007045B)
+   在 System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   在 System.Management.ManagementScope.InitializeGuts(Object o)
+   在 System.Management.ManagementScope.Initialize()
+   在 System.Management.ManagementObjectSearcher.Initialize()
+   在 System.Management.ManagementObjectSearcher.Get()
+   在 winsw.Util.ProcessHelper.GetChildPids(Int32 pid)
+2019-03-04 15:06:09,742 INFO  - Stopping process 4308
+2019-03-04 15:06:09,745 INFO  - Send SIGINT 4308
+2019-03-04 15:06:10,179 INFO  - SIGINT to4308 successful
+2019-03-04 15:06:10,193 INFO  - Finished qn-cms-yun
+2019-03-04 15:06:10,204 DEBUG - Completed. Exit code is 0
+2019-03-04 15:07:08,744 INFO  - Starting ServiceWrapper in the service mode
+2019-03-04 15:07:08,772 INFO  - Starting D:\GoLang\qncms_yun\qn_cms_yun.exe 
+2019-03-04 15:07:08,775 INFO  - Starting D:\GoLang\qncms_yun\qn_cms_yun.exe 
+2019-03-04 15:07:08,840 INFO  - Started process 1180
+2019-03-04 15:07:08,841 DEBUG - Forwarding logs of the process System.Diagnostics.Process (qn_cms_yun) to winsw.RollingLogAppender

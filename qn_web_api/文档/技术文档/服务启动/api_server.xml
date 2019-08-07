@@ -1,0 +1,19 @@
+<service>
+
+    <id>zfb_api</id>
+
+    <name>zfb_server</name>
+
+    <description>Õé·½±ãAPI½Ó¿Ú</description>
+
+    <logpath>D:\GoLang\cnwnt.com\logs\</logpath>
+
+    <logmode>roll</logmode>
+
+    <depend></depend>
+
+    <executable>D:\GoLang\cnwnt.com\qn_cms.exe</executable>
+
+    <stopexecutable>D:\GoLang\cnwnt.com\qn_cms.exe -s stop</stopexecutable>
+
+</service>
