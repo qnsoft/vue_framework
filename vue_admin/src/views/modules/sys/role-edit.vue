@@ -45,7 +45,7 @@
           remark: ''
         },
         dataRule: {
-          roleName: [
+          role_name: [
             { required: true, message: '角色名称不能为空', trigger: 'blur' }
           ]
         },
@@ -74,7 +74,7 @@
               method: 'get',
               params: this.$http.adornParams()
             }).then(({data}) => {
-              if (data && data.code === 200) { console.log('获取单条角色信息',data)
+              if (data && data.code === 200) { //console.log('获取单条角色信息',data)
                 this.dataForm.role_name = data.role.role_name
                 this.dataForm.remark = data.role.remark
                 let _menu_idlist=JSON.parse(data.role.menu_idlist)
@@ -92,28 +92,28 @@
       // 表单提交
       dataFormSubmit () {
         this.$refs['dataForm'].validate((valid) => {
-          let _xh_ids=[].concat(this.$refs.menuListTree.getCheckedKeys(), [this.tempKey], this.$refs.menuListTree.getHalfCheckedKeys())
+          let _xh_ids=[].concat(this.$refs.menuListTree.getCheckedKeys(true))
          // console.log('获取选中',_xh_ids)
           let _idds=''
           _xh_ids.forEach(function(id){
-            if(id>0){
+            if(id>1){
               _idds+=id+','
              }
             })
-          _idds = idds.substring(0, idds.length - 1)
+           _xh_ids = _idds.substring(0, _idds.length - 1)
           if (valid) {
             this.$http({
               url: this.$http.adornUrl(`/sys/role/edit`),
               method: 'post',
               data: this.$http.adornData({
-                'role_id': this.dataForm.role_id,
-                'type':!this.dataForm.id ? 'save' : 'update',
+                'role_id':`${this.dataForm.role_id}`,
+                'type':!this.dataForm.role_id ? 'save' : 'update',
                 'role_name': this.dataForm.role_name,
                 'remark': this.dataForm.remark,
-                'menu_idlist':_idds
+                'menu_idlist':_xh_ids
               })
             }).then(({data}) => {
-              if (data && data.code === 0) {
+              if (data && data.code === 200) {
                 this.$message({
                   message: '操作成功',
                   type: 'success',

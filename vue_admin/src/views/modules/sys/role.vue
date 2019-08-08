@@ -107,7 +107,7 @@
           params: this.$http.adornParams({
             'pageIndex': this.pageIndex,
             'pageSize': this.pageSize,
-            'roleName': this.dataForm.roleName
+            'keyWord': this.dataForm.role_name
           })
         }).then(({data}) => {
           if (data && data.code === 200) {
@@ -147,6 +147,12 @@
         var ids = id ? [id] : this.dataListSelections.map(item => {
           return item.role_id
         })
+         let idds='';
+        ids.forEach(function(id){
+          // console.log('遍历获取的id',id)
+          idds+=id+','
+        })
+        idds = idds.substring(0, idds.length - 1)
         this.$confirm(`确定对[id=${ids.join(',')}]进行[${id ? '删除' : '批量删除'}]操作?`, '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -155,9 +161,12 @@
           this.$http({
             url: this.$http.adornUrl('/sys/role/delete'),
             method: 'post',
-            data: this.$http.adornData(ids, false)
+            data: this.$http.adornData({
+              ids:idds, 
+              is:false
+              })
           }).then(({data}) => {
-            if (data && data.code === 0) {
+            if (data && data.code === 200) {
               this.$message({
                 message: '操作成功',
                 type: 'success',

@@ -78,7 +78,7 @@
                 'uuid': this.dataForm.uuid,
                 'captcha': this.dataForm.captcha
               })
-            }).then(({data}) => { console.log('返回的数据是：',{data})
+            }).then(({data}) => { console.log('登录请求返回的数据是：',{data})
               if (data && data.code === 200) {
                 this.$cookie.set('token', data.token)
                 this.$router.replace({ name: 'home' })

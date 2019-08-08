@@ -1158,3 +1158,29 @@
 2019-08-04 14:34:06 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Error 1062: Duplicate entry '444' for key 'param_key'
 2019-08-04 14:35:32 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Error 1062: Duplicate entry '444' for key 'param_key'
 2019-08-05 07:50:44 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] sql: expected 0 arguments, got 1
+2019-08-07 22:27:14 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] No content found to be updated
+2019-08-07 22:27:22 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] No content found to be updated
+2019-08-07 23:28:08 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] dial tcp 122.114.213.101:3306: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+2019-08-08 10:42:54 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] sql: converting argument $1 type: unsupported type []interface {}, a slice of interface
+2019-08-08 10:42:54 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] sql: converting argument $1 type: unsupported type []interface {}, a slice of interface
+2019-08-08 10:43:08 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] sql: converting argument $1 type: unsupported type []interface {}, a slice of interface
+2019-08-08 10:43:08 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] sql: converting argument $1 type: unsupported type []interface {}, a slice of interface
+2019-08-08 10:43:22 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] sql: converting argument $1 type: unsupported type []interface {}, a slice of interface
+2019-08-08 10:43:22 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] sql: converting argument $1 type: unsupported type []interface {}, a slice of interface
+2019-08-08 10:44:05 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] sql: converting argument $1 type: unsupported type []interface {}, a slice of interface
+2019-08-08 10:44:05 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] sql: converting argument $1 type: unsupported type []interface {}, a slice of interface
+2019-08-08 10:45:04 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] sql: converting argument $1 type: unsupported type []interface {}, a slice of interface
+2019-08-08 10:45:04 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] sql: converting argument $1 type: unsupported type []interface {}, a slice of interface
+2019-08-08 10:59:33 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] No content found to be updated
+2019-08-08 11:00:39 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] No content found to be updated
+2019-08-08 14:32:38 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Error 1054: Unknown column 'UserId' in 'where clause'
+2019-08-08 14:32:50 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Error 1054: Unknown column 'UserId' in 'where clause'
+2019-08-08 14:35:34 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Error 1054: Unknown column 'UserId' in 'where clause'
+2019-08-08 14:36:07 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Error 1054: Unknown column 'UserId' in 'where clause'
+2019-08-08 14:38:07 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Error 1054: Unknown column 'UserId' in 'where clause'
+2019-08-08 14:39:14 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Error 1054: Unknown column 'UserId' in 'where clause'
+2019-08-08 14:39:56 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Error 1054: Unknown column 'UserId' in 'where clause'
+2019-08-08 15:58:35 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] No content found to be updated
+2019-08-08 16:01:40 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] No content found to be updated
+2019-08-08 17:13:53 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Params type error
+2019-08-08 17:13:54 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Params type error

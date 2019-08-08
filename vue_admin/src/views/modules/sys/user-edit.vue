@@ -1,16 +1,16 @@
 <template>
   <el-dialog
-    :title="!dataForm.id ? '新增' : '修改'"
+    :title="!dataForm.user_id ? '新增' : '修改'"
     :close-on-click-modal="false"
     :visible.sync="visible">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmit()" label-width="80px">
-      <el-form-item label="用户名" prop="userName">
-        <el-input v-model="dataForm.userName" placeholder="登录帐号"></el-input>
+      <el-form-item label="用户名" prop="username">
+        <el-input v-model="dataForm.username" placeholder="登录帐号"></el-input>
       </el-form-item>
-      <el-form-item label="密码" prop="password" :class="{ 'is-required': !dataForm.id }">
+      <el-form-item label="密码" prop="password" :class="{ 'is-required': !dataForm.user_id }">
         <el-input v-model="dataForm.password" type="password" placeholder="密码"></el-input>
       </el-form-item>
-      <el-form-item label="确认密码" prop="comfirmPassword" :class="{ 'is-required': !dataForm.id }">
+      <el-form-item label="确认密码" prop="comfirmPassword" :class="{ 'is-required': !dataForm.user_id }">
         <el-input v-model="dataForm.comfirmPassword" type="password" placeholder="确认密码"></el-input>
       </el-form-item>
       <el-form-item label="邮箱" prop="email">
@@ -19,9 +19,9 @@
       <el-form-item label="手机号" prop="mobile">
         <el-input v-model="dataForm.mobile" placeholder="手机号"></el-input>
       </el-form-item>
-      <el-form-item label="角色" size="mini" prop="roleIdList">
-        <el-checkbox-group v-model="dataForm.roleIdList">
-          <el-checkbox v-for="role in roleList" :key="role.roleId" :label="role.roleId">{{ role.roleName }}</el-checkbox>
+      <el-form-item label="角色" size="mini" prop="roleid_list">
+        <el-checkbox-group v-model="dataForm.roleid_list">
+          <el-checkbox v-for="role in role_list" :key="role.role_id" :label="role.role_id">{{ role.role_name }}</el-checkbox>
         </el-checkbox-group>
       </el-form-item>
       <el-form-item label="状态" size="mini" prop="status">
@@ -43,14 +43,14 @@
   export default {
     data () {
       var validatePassword = (rule, value, callback) => {
-        if (!this.dataForm.id && !/\S/.test(value)) {
+        if (!this.dataForm.user_id && !/\S/.test(value)) {
           callback(new Error('密码不能为空'))
         } else {
           callback()
         }
       }
       var validateComfirmPassword = (rule, value, callback) => {
-        if (!this.dataForm.id && !/\S/.test(value)) {
+        if (!this.dataForm.user_id && !/\S/.test(value)) {
           callback(new Error('确认密码不能为空'))
         } else if (this.dataForm.password !== value) {
           callback(new Error('确认密码与密码输入不一致'))
@@ -74,20 +74,20 @@
       }
       return {
         visible: false,
-        roleList: [],
+        role_list: [],
         dataForm: {
-          id: 0,
-          userName: '',
+          user_id: 0,
+          username: '',
           password: '',
           comfirmPassword: '',
           salt: '',
           email: '',
           mobile: '',
-          roleIdList: [],
+          roleid_list: [],
           status: 1
         },
         dataRule: {
-          userName: [
+          username: [
             { required: true, message: '用户名不能为空', trigger: 'blur' }
           ],
           password: [
@@ -109,32 +109,32 @@
     },
     methods: {
       init (id) {
-        this.dataForm.id = id || 0
+        this.dataForm.user_id = id || 0
         this.$http({
           url: this.$http.adornUrl('/sys/role/select'),
           method: 'get',
           params: this.$http.adornParams()
-        }).then(({data}) => {
-          this.roleList = data && data.code === 0 ? data.list : []
-        }).then(() => {
+        }).then(({data}) => { console.log('菜单选择列表',data)
+          this.role_list = data && data.code === 200 ? data.list : []
+        }).then(() => { 
           this.visible = true
           this.$nextTick(() => {
             this.$refs['dataForm'].resetFields()
           })
-        }).then(() => {
-          if (this.dataForm.id) {
+        }).then(() => { 
+          if (this.dataForm.user_id) { 
             this.$http({
-              url: this.$http.adornUrl(`/sys/user/info/${this.dataForm.id}`),
+              url: this.$http.adornUrl(`/sys/user/info/${this.dataForm.user_id}`),
               method: 'get',
               params: this.$http.adornParams()
             }).then(({data}) => {
-              if (data && data.code === 0) {
-                this.dataForm.userName = data.user.username
+              if (data && data.code === 200) {   //console.log(data.user.status)
+                this.dataForm.username = data.user.username
                 this.dataForm.salt = data.user.salt
                 this.dataForm.email = data.user.email
                 this.dataForm.mobile = data.user.mobile
-                this.dataForm.roleIdList = data.user.roleIdList
-                this.dataForm.status = data.user.status
+                this.dataForm.roleid_list = data.user.roleid_list
+                this.dataForm.status =data.user.status
               }
             })
           }
@@ -143,22 +143,30 @@
       // 表单提交
       dataFormSubmit () {
         this.$refs['dataForm'].validate((valid) => {
+          let _roleid_idds=''
+          this.dataForm.roleid_list.forEach(function(id){
+            if(id>0){
+              _roleid_idds+=id+','
+             }
+            })
+           _roleid_idds = _roleid_idds.substring(0, _roleid_idds.length - 1)
           if (valid) {
             this.$http({
-              url: this.$http.adornUrl(`/sys/user/${!this.dataForm.id ? 'save' : 'update'}`),
+              url: this.$http.adornUrl(`/sys/user/edit`),
               method: 'post',
               data: this.$http.adornData({
-                'userId': this.dataForm.id || undefined,
-                'username': this.dataForm.userName,
+                'user_id':`${this.dataForm.user_id}`,
+                'type':!this.dataForm.user_id ? 'save' : 'update',
+                'username': this.dataForm.username,
                 'password': this.dataForm.password,
                 'salt': this.dataForm.salt,
                 'email': this.dataForm.email,
                 'mobile': this.dataForm.mobile,
                 'status': this.dataForm.status,
-                'roleIdList': this.dataForm.roleIdList
+                'roleid_list': _roleid_idds
               })
             }).then(({data}) => {
-              if (data && data.code === 0) {
+              if (data && data.code === 200) {
                 this.$message({
                   message: '操作成功',
                   type: 'success',

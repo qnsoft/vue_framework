@@ -44,9 +44,9 @@
     },
     methods: {
       // 通过menu_id与动态(菜单)路由进行匹配跳转至指定路由
-      gotoRouteHandle (menu) { console.log('菜单路由',menu)
+      gotoRouteHandle (menu) { //console.log('菜单路由',menu)
         var route = this.dynamicMenuRoutes.filter(item => item.meta.menu_id === menu.menu_id)
-        console.log('路由',route)
+       // console.log('路由',route)
         if (route.length >= 1) {
           this.$router.push({ name: route[0].name })
         }
