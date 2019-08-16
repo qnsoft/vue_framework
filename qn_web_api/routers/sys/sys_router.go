@@ -18,6 +18,8 @@ func Sys_router() {
 	beego.Router("/api/sys/user/info/:user_id", &api.User_Controller{}, "*:Info")
 	//添加或修改系统用户信息
 	beego.Router("/api/sys/user/edit", &api.User_Controller{}, "post:Edit")
+	//删除系统用户信息
+	beego.Router("/api/sys/user/delete", &api.User_Controller{}, "post:Delete")
 	//系统管理员列表信息
 	beego.Router("/api/sys/user/list", &api.User_Controller{}, "get,post:List")
 	//系统角色列表信息

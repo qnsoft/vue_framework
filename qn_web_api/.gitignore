@@ -1,0 +1,9 @@
+#ignore compile file
+
+.idea
+.vscode
+logs/*.log
+/uplaod/*
+/conf/app.conf
+#vue2+webpack2生成的文件
+ 

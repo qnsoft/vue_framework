@@ -128,7 +128,7 @@
               method: 'get',
               params: this.$http.adornParams()
             }).then(({data}) => {
-              if (data && data.code === 200) {   //console.log(data.user.status)
+              if (data && data.code === 200) {   console.log('获取单条信息：',data)
                 this.dataForm.username = data.user.username
                 this.dataForm.salt = data.user.salt
                 this.dataForm.email = data.user.email
@@ -162,7 +162,7 @@
                 'salt': this.dataForm.salt,
                 'email': this.dataForm.email,
                 'mobile': this.dataForm.mobile,
-                'status': this.dataForm.status,
+                'status': `${this.dataForm.status}`,
                 'roleid_list': _roleid_idds
               })
             }).then(({data}) => {

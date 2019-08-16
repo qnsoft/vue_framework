@@ -1184,3 +1184,4 @@
 2019-08-08 16:01:40 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] No content found to be updated
 2019-08-08 17:13:53 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Params type error
 2019-08-08 17:13:54 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Params type error
+2019-08-14 18:53:42 [WARN] [zhenfangbian/web_api/utils/ErrorHelper/errorobj.go:16] Error 1054: Unknown column 'user_id' in 'where clause'
