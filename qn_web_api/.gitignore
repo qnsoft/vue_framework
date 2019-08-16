@@ -4,6 +4,6 @@
 .vscode
 logs/*.log
 /uplaod/*
-/conf/app.conf
+conf/*.conf
 #vue2+webpack2生成的文件
  
