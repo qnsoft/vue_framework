@@ -9,6 +9,6 @@ settings.json
 .idea
 .vscode
 logs/*.log
-/conf/app.conf
+*.conf
 #vue2+webpack2生成的文件
  

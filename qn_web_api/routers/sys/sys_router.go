@@ -14,6 +14,15 @@ func Sys_router() {
 	beego.Router("/api/sys/menu/nav", &api.Menu_Controller{}, "*:Nav")
 	//菜单管理列表
 	beego.Router("/api/sys/menu/list", &api.Menu_Controller{}, "*:List")
+	//菜单选择
+	beego.Router("/api/sys/menu/select", &api.Menu_Controller{}, "*:Select")
+	//获取单条菜单信息
+	beego.Router("/api/sys/menu/info/:menu_id", &api.Menu_Controller{}, "*:Info")
+	//添加或修改菜单信息
+	beego.Router("/api/sys/menu/edit", &api.Menu_Controller{}, "post:Edit")
+	//删除菜单
+	beego.Router("/api/sys/menu/delete", &api.Menu_Controller{}, "post:Delete")
+
 	//系统用户信息
 	beego.Router("/api/sys/user/info/:user_id", &api.User_Controller{}, "*:Info")
 	//添加或修改系统用户信息

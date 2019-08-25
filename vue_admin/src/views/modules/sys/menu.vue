@@ -90,7 +90,7 @@
 
 <script>
   import TableTreeColumn from '@/components/table-tree-column'
-  import AddOrUpdate from './menu-add-or-update'
+  import AddOrUpdate from './menu-edit'
   import { treeDataTranslate } from '@/utils'
   export default {
     data () {
@@ -136,11 +136,14 @@
           type: 'warning'
         }).then(() => {
           this.$http({
-            url: this.$http.adornUrl(`/sys/menu/delete/${id}`),
+            url: this.$http.adornUrl(`/sys/menu/delete`),
             method: 'post',
-            data: this.$http.adornData()
+              data: this.$http.adornData({
+              ids: `${id}`,
+              is: false
+            })
           }).then(({data}) => {
-            if (data && data.code === 0) {
+            if (data && data.code === 200) {
               this.$message({
                 message: '操作成功',
                 type: 'success',
@@ -150,7 +153,7 @@
                 }
               })
             } else {
-              this.$message.error(data.msg)
+              this.$message.error(data.info)
             }
           })
         }).catch(() => {})

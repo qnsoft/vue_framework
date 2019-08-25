@@ -141,9 +141,9 @@ func (this *User_Controller) Edit() {
 		ErrorHelper.CheckErr(err)
 		if _count > 0 || err == nil {
 			new(models.SysUserRole).Update_user_role(_user_id, _roleid_list) //修改用户与角色关系
-			_rt_json = map[string]interface{}{"code": 200, "msg": "success", "info": "数据获取成功！", "role": &_model}
+			_rt_json = map[string]interface{}{"code": 200, "msg": "success", "info": "修改成功！", "role": &_model}
 		} else {
-			_rt_json = map[string]interface{}{"code": 0, "msg": "fail", "info": "数据获取失败！"}
+			_rt_json = map[string]interface{}{"code": 0, "msg": "fail", "info": "修改失败！"}
 		}
 	}
 	this.Data["json"] = _rt_json
