@@ -2,8 +2,8 @@ package models
 
 import (
 	"time"
-	"zhenfangbian/web_api/utils/DbHelper"
-	"zhenfangbian/web_api/utils/ErrorHelper"
+	"qnsoft/qn_web_api/utils/DbHelper"
+	"qnsoft/qn_web_api/utils/ErrorHelper"
 )
 
 type SysUser struct {

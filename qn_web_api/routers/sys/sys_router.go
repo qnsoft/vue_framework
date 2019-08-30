@@ -1,4 +1,4 @@
-package routers
+package sys
 
 import (
 	"qnsoft/qn_web_api/controllers/api/sys"
@@ -8,6 +8,8 @@ import (
 
 /* sys相关接口路由 */
 func Sys_router() {
+	//系统用户登录验证码
+	beego.Router("/api/sys/verifyCode", &api.User_Controller{}, "*:VerifyCode")
 	//系统用户登录
 	beego.Router("/api/sys/login", &api.User_Controller{}, "post:Login")
 	//系统菜单

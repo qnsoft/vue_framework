@@ -2,14 +2,16 @@ package api
 
 import (
 	"encoding/json"
-	"fmt"
 	"qnsoft/qn_web_api/controllers/Token"
 	"qnsoft/qn_web_api/models/sys"
 	"strconv"
 	"strings"
 	"time"
-	"zhenfangbian/web_api/utils/DbHelper"
-	"zhenfangbian/web_api/utils/ErrorHelper"
+	"qnsoft/qn_web_api/utils/DbHelper"
+	"qnsoft/qn_web_api/utils/ErrorHelper"
+	"qnsoft/qn_web_api/utils/PicHelper"
+
+	"github.com/mojocn/base64Captcha"
 )
 
 /**
@@ -17,6 +19,21 @@ import (
  */
 type User_Controller struct {
 	Token.BaseController
+}
+
+/* 全局变量用来存储验证码 */
+var _VerCode string
+
+/*
+登录验证码
+*/
+func (this *User_Controller) VerifyCode() {
+	idKeyD, base64stringD := PicHelper.Pic_verifycode_character(this.Ctx.ResponseWriter, this.Ctx.Request)
+	//fmt.Println("原始值：", idKeyD+"===>>>", base64stringD)
+	_json := map[string]interface{}{"code": 200, "id": idKeyD, "src": base64stringD, "msg": "success", "info": "成功获取验证码!"}
+	this.Data["json"] = _json
+	this.ServeJSON()
+
 }
 
 /*
@@ -27,13 +44,17 @@ func (this *User_Controller) Login() {
 	var _FormData map[string]string
 	_req := this.Ctx.Input.RequestBody
 	json.Unmarshal([]byte(_req), &_FormData)
-	//_Password := this.GetString("password")
-	fmt.Println(_FormData["username"])
 	_model := models.SysUser{Username: _FormData["username"], Password: _FormData["password"]}
+	_idkeyd := strings.TrimSpace(_FormData["idkeyd"])
+	_checkcode := strings.TrimSpace(_FormData["checkcode"])
+	//比较图像验证码
+	_very_code := base64Captcha.VerifyCaptcha(_idkeyd, _checkcode)
 	_results, err := DbHelper.MySqlDb().Get(&_model)
 	ErrorHelper.CheckErr(err)
-	if _results {
+	if _results && _very_code == true {
 		_rt_json = map[string]interface{}{"code": 200, "msg": "success", "info": "登录成功！", "data": &_model}
+	} else if _results && _very_code == false {
+		_rt_json = map[string]interface{}{"code": 0, "msg": "fail", "info": "验证码不正确！"}
 	} else {
 		_rt_json = map[string]interface{}{"code": 0, "msg": "fail", "info": "登录失败！"}
 	}

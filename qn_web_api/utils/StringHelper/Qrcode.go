@@ -73,13 +73,13 @@ func (q *QrCode) CheckEncode(path string) bool {
 func (q *QrCode) Encode(path string) (string, string, error) {
 	name := GetQrCodeFileName(q.URL) + q.GetQrCodeExt()
 	src := path + name
+	ErrorHelper.LogInfo("获取生成路径：", src)
 	if FileHelper.CheckNotExist(src) == true {
 		code, err := qr.Encode(q.URL, q.Level, q.Mode)
 		if err != nil {
 			ErrorHelper.LogInfo("生成二维码出错1：", err)
 			return "", "", err
 		}
-
 		code, err = barcode.Scale(code, q.Width, q.Height)
 		if err != nil {
 			ErrorHelper.LogInfo("生成二维码出错2：", err)
