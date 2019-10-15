@@ -57,6 +57,10 @@
       }
     },
     computed: {
+       userId: {
+        get () { return this.$store.state.user.id },
+        set (val) { this.$store.commit('user/updateId', val) }
+      },
       userName: {
         get () { return this.$store.state.user.name }
       },
@@ -74,18 +78,19 @@
         })
       },
       // 表单提交
-      dataFormSubmit () {
+      dataFormSubmit () { //console.log('id是',this.userId)
         this.$refs['dataForm'].validate((valid) => {
           if (valid) {
             this.$http({
-              url: this.$http.adornUrl('/sys/user/password'),
+              url: this.$http.adornUrl('/sys/Password'),
               method: 'post',
               data: this.$http.adornData({
+                'user_id':`${this.userId}`,
                 'password': this.dataForm.password,
                 'newPassword': this.dataForm.newPassword
               })
             }).then(({data}) => {
-              if (data && data.code === 0) {
+              if (data && data.code === 200) {
                 this.$message({
                   message: '操作成功',
                   type: 'success',

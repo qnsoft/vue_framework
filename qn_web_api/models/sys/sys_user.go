@@ -1,9 +1,9 @@
 package models
 
 import (
-	"time"
 	"qnsoft/qn_web_api/utils/DbHelper"
 	"qnsoft/qn_web_api/utils/ErrorHelper"
+	"time"
 )
 
 type SysUser struct {

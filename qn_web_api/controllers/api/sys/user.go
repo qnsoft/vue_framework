@@ -4,12 +4,12 @@ import (
 	"encoding/json"
 	"qnsoft/qn_web_api/controllers/Token"
 	"qnsoft/qn_web_api/models/sys"
-	"strconv"
-	"strings"
-	"time"
 	"qnsoft/qn_web_api/utils/DbHelper"
 	"qnsoft/qn_web_api/utils/ErrorHelper"
 	"qnsoft/qn_web_api/utils/PicHelper"
+	"strconv"
+	"strings"
+	"time"
 
 	"github.com/mojocn/base64Captcha"
 )
@@ -52,12 +52,49 @@ func (this *User_Controller) Login() {
 	_results, err := DbHelper.MySqlDb().Get(&_model)
 	ErrorHelper.CheckErr(err)
 	if _results && _very_code == true {
-		_rt_json = map[string]interface{}{"code": 200, "msg": "success", "info": "登录成功！", "data": &_model}
+		_rt_json = map[string]interface{}{"code": 200, "msg": "success", "info": "登录成功！", "user": &_model}
 	} else if _results && _very_code == false {
 		_rt_json = map[string]interface{}{"code": 0, "msg": "fail", "info": "验证码不正确！"}
 	} else {
-		_rt_json = map[string]interface{}{"code": 0, "msg": "fail", "info": "登录失败！"}
+		_rt_json = map[string]interface{}{"code": 0, "msg": "fail", "info": "用户名或密码不正确！"}
 	}
+	this.Data["json"] = _rt_json
+	this.ServeJSON()
+}
+
+/*
+修改管理员密码
+*/
+func (this *User_Controller) Password() {
+	var _rt_json interface{}
+	var _FormData map[string]string
+	_req := this.Ctx.Input.RequestBody
+	json.Unmarshal([]byte(_req), &_FormData)
+	_arry_cols := make([]string, 0)
+	_model := new(models.SysUser)
+	_user_id, _ := strconv.ParseInt(_FormData["user_id"], 10, 0)
+	if _FormData["password"] != "" {
+		_model.Password = _FormData["newPassword"]
+		_arry_cols = append(_arry_cols, "password")
+	}
+	_cols := strings.Join(_arry_cols, ",")
+	_count, err := new(models.SysUser).Get_Info_Update(_user_id, _cols, _model)
+	ErrorHelper.CheckErr(err)
+	if _count > 0 || err == nil {
+		_rt_json = map[string]interface{}{"code": 200, "msg": "success", "info": "密码修改成功！"}
+	} else {
+		_rt_json = map[string]interface{}{"code": 0, "msg": "fail", "info": "密码修改失败！"}
+	}
+	this.Data["json"] = _rt_json
+	this.ServeJSON()
+}
+
+/*
+系统账户退出登录
+*/
+func (this *User_Controller) Logout() {
+	var _rt_json interface{}
+	_rt_json = map[string]interface{}{"code": 200, "msg": "success", "info": "成功退出！"}
 	this.Data["json"] = _rt_json
 	this.ServeJSON()
 }

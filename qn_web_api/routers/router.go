@@ -1,9 +1,9 @@
 package routers
 
 import (
-	"qnsoft/qn_web_api/plugs/ImageUpload"
-	//"qnsoft/qn_web_api/plugs/OnlinePay"
+	"qnsoft/qn_web_api/controllers"
 	"qnsoft/qn_web_api/controllers/Token"
+	"qnsoft/qn_web_api/plugs/ImageUpload"
 	"qnsoft/qn_web_api/routers/plugs"
 	"qnsoft/qn_web_api/routers/sys"
 
@@ -19,12 +19,15 @@ func init() {
 		AllowHeaders:     []string{"Origin", "Authorization", "Access-Control-Allow-Origin", "Access-Control-Allow-Headers", "Content-Type", "Token"},
 		ExposeHeaders:    []string{"Content-Length", "Access-Control-Allow-Origin", "Access-Control-Allow-Headers", "Content-Type", "Token"},
 		AllowCredentials: true}))
-	beego.SetStaticPath("/upload", "upload") //重定向静态路径 上传查看
-	beego.SetStaticPath("/logs", "logs")     //重定向静态路径 日志查看
-	beego.SetStaticPath("/views", "views")   //重定向静态路径 模板查看
+	beego.SetStaticPath("/upload", "upload")              //重定向静态路径 上传查看
+	beego.SetStaticPath("/logs", "logs")                  //重定向静态路径 日志查看
+	beego.SetStaticPath("/views", "views")                //重定向静态路径 模板查看
+	beego.SetStaticPath("/admin", "views/web_root/admin") //重定向静态路径 模板查看
 	//-------------------------基础接口开始-----------------------------------//
 	//根目录
-	//beego.Router("/", &controllers.Default_Controller{}, "get,post:Get")
+	beego.Router("/", &controllers.Default_Controller{}, "*:Get")
+	//wap目录
+	beego.Router("/m", &controllers.Default_Controller{}, "*:Get_Wap")
 	//先获取access_token
 	beego.Router("/access_token", &Token.AccesstokenController{}, "post:Access_Token")
 	//token测试

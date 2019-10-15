@@ -62,15 +62,17 @@
       },
       // 获取当前管理员信息
       getUserInfo () {
+        //获取当前登录的id
+        var _login_id= this.$cookie.get("login_id")
         this.$http({
-          url: this.$http.adornUrl('/sys/user/info/3'),
+          url: this.$http.adornUrl('/sys/user/info/'+_login_id),
           method: 'get',
           params: this.$http.adornParams()
-        }).then(({data}) => { //console.log('获取的信息：',{data})
+        }).then(({data}) => { console.log('获取的信息：',{data})
           if (data && data.code === 200) {
             this.loading = false
-            this.userId = data.user.UserId
-            this.userName = data.user.Username
+            this.userId = data.user.user_id
+            this.userName = data.user.username
           }
         })
       }

@@ -12,6 +12,10 @@ func Sys_router() {
 	beego.Router("/api/sys/verifyCode", &api.User_Controller{}, "*:VerifyCode")
 	//系统用户登录
 	beego.Router("/api/sys/login", &api.User_Controller{}, "post:Login")
+	//系统用户修改密码
+	beego.Router("/api/sys/Password", &api.User_Controller{}, "post:Password")
+	//系统用户退出登录
+	beego.Router("/api/sys/Logout", &api.User_Controller{}, "post:Logout")
 	//系统菜单
 	beego.Router("/api/sys/menu/nav", &api.Menu_Controller{}, "*:Nav")
 	//菜单管理列表

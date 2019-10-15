@@ -7,3 +7,30 @@
 2019-08-30 15:38:23 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [生成二维码执行 214adaec4fae5b0d9a9eab2a0ccc97ba.png]
 2019-08-30 16:55:05 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [生成二维码执行 214adaec4fae5b0d9a9eab2a0ccc97ba.png]
 2019-08-30 17:24:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-08-30 17:42:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-08-30 17:46:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-08-30 17:58:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-08-30 18:06:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-08-30 18:08:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-08-30 20:30:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-08-30 20:32:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-08-30 20:34:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-08-30 20:36:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-08-30 20:38:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-09-19 10:42:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-09-19 10:44:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-09-19 10:46:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-09-19 10:48:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-09-19 10:48:12 [WARN] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:16] dial tcp 114.116.229.225:3306: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+2019-09-19 10:48:25 [WARN] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:16] dial tcp 114.116.229.225:3306: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+2019-09-19 10:50:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-09-19 16:02:00 [INFO] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:32] [执行订单【?】成功！ 0x50be40]
+2019-09-20 10:40:45 [WARN] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:16] dial tcp 114.116.229.225:3306: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+2019-09-20 10:40:50 [WARN] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:16] dial tcp 114.116.229.225:3306: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+2019-09-20 10:41:49 [WARN] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:16] dial tcp 114.116.229.225:3306: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+2019-09-20 10:46:28 [WARN] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:16] dial tcp 114.116.229.225:3306: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+2019-09-20 10:46:33 [WARN] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:16] dial tcp 114.116.229.225:3306: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+2019-09-20 10:47:54 [WARN] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:16] Error 1130: Host '125.41.109.233' is not allowed to connect to this MySQL server
+2019-09-20 10:48:08 [WARN] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:16] Error 1130: Host '125.41.109.233' is not allowed to connect to this MySQL server
+2019-09-20 10:48:25 [WARN] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:16] Error 1130: Host '125.41.109.233' is not allowed to connect to this MySQL server
+2019-09-20 10:48:43 [WARN] [qnsoft/qn_web_api/utils/ErrorHelper/errorobj.go:16] Error 1130: Host '125.41.109.233' is not allowed to connect to this MySQL server

@@ -3,7 +3,6 @@ package main
 import (
 	"html/template"
 	"net/http"
-	"qnsoft/qn_web_api/plugs/Jobs"
 	//jobs "qnsoft/qn_web_api/controllers/Jobs"
 	_ "qnsoft/qn_web_api/routers"
 
@@ -12,7 +11,7 @@ import (
 
 func main() {
 	//初始化任务计划
-	Jobs.Test_joblist()
+	//Jobs.Test_joblist()
 	if beego.BConfig.RunMode == "dev" {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"

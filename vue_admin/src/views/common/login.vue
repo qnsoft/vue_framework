@@ -1,12 +1,6 @@
 <template>
-  <div class="site-wrapper site-page--login">
-    <div class="site-content__wrapper">
-      <div class="site-content">
-        <div class="brand-info">
-          <h2 class="brand-info__text">前后分离快速开发框架</h2>
-          <p class="brand-info__intro">基于vue、element-ui构建开发，实现后台管理前端功能，提供一套更优的前端解决方案。</p>
-        </div>
-        <div class="login-main">
+<div class="sky">
+ <div class="demo-ruleForm login-container login-main">
           <h3 class="login-title">管理员登录</h3>
           <el-form
             :model="dataForm"
@@ -35,18 +29,20 @@
               </el-row>
             </el-form-item>
             <el-form-item>
-              <el-button class="login-btn-submit" type="primary" @click="dataFormSubmit()">登录</el-button>
+              <el-button class="login-btn-submit" type="primary" @click="dataFormSubmit()">登 录</el-button>
             </el-form-item>
           </el-form>
         </div>
-      </div>
-    </div>
+        <div class="cloud"></div>
   </div>
 </template>
 
 <script>
 import { getUUID } from "@/utils";
 export default {
+ components: {
+			//VueParticles
+	},
   data() {
     return {
       dataForm: {
@@ -89,10 +85,21 @@ export default {
               'checkcode': this.dataForm.checkcode
             })
           }).then(({ data }) => {
-           // console.log("登录请求返回的数据是：", { data });
+            console.log("登录请求返回的数据是：", { data });
             if (data && data.code === 200) {
-              this.$cookie.set("token", data.token);
-              this.$router.replace({ name: "home" });
+              this.$cookie.set("token", data.token);//存储token
+              this.$cookie.set("login_id", data.user.user_id);//存储登录id
+              this.$message({ //弹出登录成功提示框
+                  message: '登录成功',
+                  type: 'success',
+                  duration: 500,
+                  onClose: () => {
+                    this.visible = false
+                    this.$nextTick(() => {
+                          this.$router.replace({ name: "home" });
+                    })
+                  }
+                })
             } else {
               this.getCheckcode();
               this.$message.error(data.info);
@@ -108,7 +115,7 @@ export default {
         url: this.$http.adornUrl(`/sys/verifyCode?uuid=${this.dataForm.uuid}`),
         method: 'get'
       }).then(({ data }) => {
-        console.log("登录请求返回的数据是：", { data });
+        //console.log("验证通过返回的数据是：", { data });
         if (data && data.code === 200) {
           this.dataForm.idkeyd = data.id
           this.checkcodePath = data.src;
@@ -122,57 +129,53 @@ export default {
 </script>
 
 <style lang="scss">
-.site-wrapper.site-page--login {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(38, 50, 56, 0.6);
-  overflow: hidden;
-  &:before {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+body{
+        background: url(~@/assets/img/login_bg.png) repeat-x;
+        min-height: 600px;
+        position: relative;
+  }
+  .sky {
+    background: url(~@/assets/img/sky.png) repeat;
     width: 100%;
     height: 100%;
-    content: "";
-    background-image: url(~@/assets/img/login_bg.jpg);
-    background-size: cover;
-  }
-  .site-content__wrapper {
+    z-index: 1;
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: transparent;
-  }
-  .site-content {
-    min-height: 100%;
-    padding: 30px 500px 30px 30px;
-  }
-  .brand-info {
-    margin: 220px 100px 0 90px;
-    color: #fff;
-  }
-  .brand-info__text {
-    margin: 0 0 22px 0;
-    font-size: 48px;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-  .brand-info__intro {
-    margin: 10px 0;
-    font-size: 16px;
-    line-height: 1.58;
-    opacity: 0.6;
-  }
+    top: 0px;
+}
+.cloud {
+    background: url(~@/assets/img/cloud.png) repeat;
+    width: 100%;
+    height: 356px;
+    position:absolute;
+    top: 450px;
+    -webkit-animation: cloud 60s linear infinite alternate;
+    -moz-animation: clouds 60s linear infinite alternate;
+    z-index: -2;
+ }
+
+ .login-container {
+    /*box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);*/
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-clip: padding-box;
+    margin: 180px auto;
+    width: 350px;
+    z-index: 999;
+    padding: 35px 35px 15px 35px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 25px #cac6c6;
+    .title {
+      margin: 0px auto 40px auto;
+      text-align: center;
+      color: #505458;
+    }
+    .remember {
+      margin: 0px 0px 35px 0px;
+    }
+  
+
   .login-main {
     position: absolute;
     top: 0;
@@ -183,7 +186,8 @@ export default {
     background-color: #fff;
   }
   .login-title {
-    font-size: 16px;
+    text-align: center;
+    font-size: 1.0rem;
   }
   .login-checkcode {
     overflow: hidden;
@@ -195,6 +199,9 @@ export default {
   .login-btn-submit {
     width: 100%;
     margin-top: 38px;
+    font-size: 1.0rem;
   }
 }
+
+
 </style>
